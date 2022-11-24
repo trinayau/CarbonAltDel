@@ -1,0 +1,57 @@
+Objective { 
+    allow SMEs to order ingredients from suppliers while lowering their carbon footprint 
+}
+
+Who? {
+    SMEs - busniess owners who are workign towards net zero wanting to find ways to lower there carbon footprint whithout effecting their current day to day running of their business 
+        Persona: John
+            owner of a small resrurant, 20-25 employees wanting to do his part for the planet 
+}
+
+Context {
+    chefs ordering ingredients required for their business. 
+    John orders all his ingreidnets via phone or emails sent directly to his suppliers with no knowledge of where or how the ingredients are sourced.    
+}
+
+// Mapping stage 
+
+Awareness {
+    John understands the enviromental impact of importing and sourcing ingredients from non-enviromentally or sustainable sources. He wants to reduce the large carbon footprint involved in import foods.
+
+    GOAL: Finds site that allows him to order with eviromentally friendly nad local suppliers 
+    Touchpoints: google search, supplier promotions, word of mouth from other restaurants 
+    Painpoints: 
+    Improvements: 
+}
+consideration {
+    John finds our site and researches on how it can help him with lowering his carbon footprint wihtout effectign his business
+    - homepage
+    - relavant info to convince the user
+    - products
+    - reviews etc 
+
+    GOAL: Provide john with all the info he would need 
+    Touchpoints: home page, contact page, products listing 
+    Painpoints: 
+    Improvements:
+}
+Desision {
+    Jphn decides to make a purchase with us 
+    - in person purchase experience
+    - order pages
+    - email confirmations 
+
+    GOAL: give john a smooth browsing and check out experience
+    Touchpoints: navigating through the site, placing items in cart, payment system 
+    Painpoints:
+    Improvements:
+}
+Retention {
+    creating loyalty, overal customer experience
+    will John come back to use our service again?
+
+    GOAL: John uses our site as his main way of ordering for restaurant 
+    Touchpoints: confirmation emails, loyalty points (carbon rating, carbon cartificate)
+    Painpoints: 
+    Improvements:
+}

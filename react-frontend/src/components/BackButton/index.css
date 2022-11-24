@@ -1,0 +1,29 @@
+/* back button */
+.back {
+    display: flex;
+    align-items: center;
+    padding: 0px 0 50px 50px;
+    background-color: var(--bg-color);
+}
+.arrow-icon {
+    opacity: 0.3;
+    height: 13px;
+    padding: 0 10px 20px 0px;
+    cursor: pointer;
+}
+
+.arrow-icon:hover {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    .back {
+        padding: 0px 0px 30px 0px;
+        justify-content: center;
+    }
+    .arrow-icon {
+        padding: 0 10px 0 0px;
+    }
+}
+    

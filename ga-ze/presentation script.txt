@@ -1,0 +1,12 @@
+ Self intro 
+ - Hello I'm Kei, head pastry chef at Kai Mayfair working towards becomign a UI/UX designer and full stack web developer
+
+ User journey 
+ - Our goal is to have as many SMEs order through our system as possible as every order will be carbon neutral unlike the conventionl way of ordering. 
+ - when a user finds our site whether is through a google search, word of mouth or their suppliers, the homepage will be the first thing they see
+ - so we've made it clear, exactly what we do and how it can help businesses reach net zero straightaway with near zero navigation, minus a little scroll 
+ - by capturing the users attention straightaway, it should lead them wantign to find out more about what we do and ultimately lead to them being a regular user of out site 
+
+ Slide 17
+ - we want to work with as manyu local suppliers as possible as there are many merits in doing so for both the enviroment and local bsuinesses. 
+ - For SMEs cost is a major deciding factor when it comes to business, but showing the cost of ingreidnts from different suppliers all in one place for the user, it allows them find the lowest cost which would mostly come from local suppliers due to the lower trasnportation cost and lack of preservatives

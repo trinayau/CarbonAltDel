@@ -1,0 +1,17 @@
+body {
+    width: 1000px;
+    background-image: url("images/certbg.png");
+    background-repeat: no-repeat;
+}
+.container {
+    box-sizing: border-box;
+    width: 1000px;
+    height: 707px;
+    text-align: center;
+    padding-top: 100px;
+}
+.cert-info-text {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 150px;
+}

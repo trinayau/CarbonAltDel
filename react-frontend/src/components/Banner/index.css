@@ -1,0 +1,5 @@
+.video{
+    min-height: 800px;
+    object-fit: cover;
+    -o-object-fit: cover;
+}

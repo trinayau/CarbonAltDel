@@ -1,0 +1,31 @@
+/* Footer */
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #f5f5f5;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 100;
+    color: var(--dark-color);
+    margin-top: auto;
+
+}
+.contact-us{
+    font-weight: bold;
+    color: var(--medium-color);
+}
+.footer ul {
+    list-style-type: none;
+}
+.footer li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+/* media screen 768px */
+@media only screen and (max-width: 768px) {
+    .footer {
+        display: none;
+    }
+}

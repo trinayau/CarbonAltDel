@@ -1,0 +1,14 @@
+.order-status-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.order-status-body{
+    padding: 50px;
+    font-family: 'Montserrat', sans-serif;
+
+}

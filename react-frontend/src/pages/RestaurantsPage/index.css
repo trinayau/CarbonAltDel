@@ -1,0 +1,48 @@
+/* SUppliers list */
+@media only screen and (max-width: 360px) {
+    .suppliers-info {
+        font-size: 12px;
+    }
+}
+.restaurants {
+    background-color: #f9f9f9;
+    padding: 50px 100px 100px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurants a{
+    text-decoration: none;
+    color: var(--medium-color);
+}
+.restaurants > div:nth-child(even){
+    background-color: white;
+    border: none;
+}
+.restaurants > div:nth-child(even) a {
+    color: var(--medium-color);
+}
+.restaurants-header, .suppliers-info {
+    line-height: 25px;
+    margin-bottom: 20px;
+    padding: 10px 30px 10px 30px;
+}
+.restaurants-header h2 {
+    color: var(--medium-color);
+}
+.suppliers-info span {
+    font-weight: bold;
+}
+.suppliers-info p {
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .restaurants{
+        padding: 0;
+    }
+    .suppliers-info {
+        font-size: 12px;
+    }
+}
