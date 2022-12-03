@@ -21,8 +21,8 @@ const AllProductPage = () => {
 
   useEffect(() =>{ 
     async function searchApi() {
-      const requestLatest = "https://lloyds-hackathon-server.vercel.app/api/v1/latest-products/";
-      const requestCategories = "https://lloyds-hackathon-server.vercel.app/api/v1/categories/";
+      const requestLatest = "https://carbon-alt-del-server.vercel.app/api/v1/latest-products/";
+      const requestCategories = "https://carbon-alt-del-server.vercel.app/api/v1/categories/";
 
         try{
             const resultLatest = await axios.get(requestLatest,

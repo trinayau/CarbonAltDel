@@ -13,7 +13,7 @@ const SingleProductPage = ({ image, productDesc }) => {
 
   useEffect(() => {
     async function searchApi() {
-      const request = `https://lloyds-hackathon-server.vercel.app/api/v1/categories/${productName.toLowerCase()}`;
+      const request = `https://carbon-alt-del-server.vercel.app/api/v1/categories/${productName.toLowerCase()}`;
       try {
         const result = await axios.get(request, {
           headers: {

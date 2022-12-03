@@ -52,7 +52,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     weight = models.IntegerField(("Weight (kg)"), blank=True, null=True)
     offset = models.DecimalField(max_digits=6, decimal_places=2)
-    image_url = models.CharField(max_length=255, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
