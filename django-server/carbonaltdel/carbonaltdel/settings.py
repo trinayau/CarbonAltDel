@@ -43,10 +43,22 @@ INSTALLED_APPS = [
     'corsheaders',
     'djoser',
 
-    'products'
+    'products',
+    'core.apps.CoreConfig',
 ]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", ]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000" ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -594,3 +594,41 @@ input, textarea::placeholder {
     display: inline;
     padding: 0 20px 0 20px;
 }
+
+/* profile page mobile */
+
+.container {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 400px;
+    padding-top: 20px;
+}
+
+.box {
+    background-color: white;
+    width: 360px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.box img {
+    width: 100%;
+}
+
+.boxInfo {
+    display: flex;
+    justify-content: space-between;
+}
+form {
+    padding-bottom: 10px;
+}
+
+.profile-headers, .orders {
+    font-weight: bold;
+}
