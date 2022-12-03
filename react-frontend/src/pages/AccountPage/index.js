@@ -5,11 +5,12 @@ import {Button} from '@mui/material';
 import { useEffect, useState, useContext } from 'react';
 import { Alert, Snackbar } from '@mui/material';
 import AuthContext from "../../context/AuthContext";
+import dayjs from 'dayjs';
 
 const AccountPage = () => {
 
     const navigate = useNavigate();
-    let {user} = useContext(AuthContext);
+    let {user, logoutuser} = useContext(AuthContext);
 
     const [orders, setOrders] = useState([]);
     let {authTokens} = useContext(AuthContext);
@@ -26,7 +27,12 @@ const AccountPage = () => {
             }
         })
         let data = await response.json();
+        if(response.status === 200){
+
         setOrders(data);
+        } else if(response.statusText === 'Unauthorized'){
+            logoutuser();
+        }
 
     }
 
@@ -101,12 +107,15 @@ const AccountPage = () => {
             <div class="orders-list">
                 <div class="orders">
                     {orders.map((order) => (
-                        <div class="order">
-                            <div class="order-date
-                            ">{order.date}</div>
-                            <div class="order-items">
+                        <div class="order d-flex justify-content-between">
+                             <div class="order-items">
                                 {order.body}
                             </div>
+                            <div class="order-date
+                            ">
+                                {dayjs(order.date).format('DD/MM/YYYY')}
+                            </div>
+                           
                         </div>
                     ))}
 
