@@ -13,19 +13,21 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Link from '@mui/material/Link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-// const pages = ['Contact'];
+import { AuthContext } from '../../context/AuthContext';
+import { useContext } from 'react';
 const pageLinks = ['/products', '/pricing', '/blog'];
-const settings = ['Orders', 'Logout'];
-const loggedIn = true;
+const settings = ['Orders'];
+// const loggedIn = true;
 
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   const navigate = useNavigate();
+  let { user, logoutuser } = useContext(AuthContext);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -47,6 +49,7 @@ function NavBar() {
     handleCloseUserMenu();
     navigate(link);
   };
+
 
   return (
     <AppBar position="static" style={{background:'#ffffff', boxShadow:'none', padding: 0, maxWidth: '100% !important'}}>
@@ -77,6 +80,7 @@ function NavBar() {
           >
             CarbonAltDel
           </Typography>
+
  {/* Mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -154,7 +158,9 @@ function NavBar() {
             CarbonAltDel
           </Typography>
           {/* cart icon */}
+
           <Box sx={{ display: { xs: 'flex', md: 'none', lg: 'none', xl: 'none' } }}>
+            {user && <>
             <Tooltip title="Cart">
               <IconButton
                 size="large"
@@ -169,9 +175,12 @@ function NavBar() {
                 <ShoppingCartIcon sx={{color: '#2E3E46'}}/>
                 </IconButton>
             </Tooltip>
+            </>}
           </Box>
 
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', lg: 'flex', xl: 'flex', flexDirection: "row",    justifyContent: "end" } }}>
+            {user && <>
             <Button
                 key={'products'}
                 onClick={() => handleLink('/products')}
@@ -182,6 +191,8 @@ function NavBar() {
               >
                 Products
               </Button>
+            </>}
+          
               <Button
                 key={'suppliers'}
                 onClick={() => handleLink('/suppliers')}
@@ -212,6 +223,23 @@ function NavBar() {
               >
                 Contact
               </Button>
+              {!user ? 
+              <>
+              <Button
+                key={'contact'}
+                onClick={() => handleLink('/signup')}
+                sx={{ my: 2, color: '#52796f', display: 'block', "&:hover": {
+                  color: '#07060A',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease-in'}}}
+              >
+                Register
+              </Button>
+
+              </>:
+              <>
+              </>}
+              {user && <>
               <Button
                 key={'cart'}
                 onClick={() => handleLink('/cart')}
@@ -222,14 +250,16 @@ function NavBar() {
               >
                 <ShoppingCartIcon sx={{color: '#07060A'}}/>
               </Button>
+              </>}
           </Box>
           
 {/* End mobile */}
+
           <Box sx={{ flexGrow: 0}}>
             <Tooltip title="Open settings">
-              {loggedIn ? (
+              {user ? (
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Kai Mayfair" src="/static/images/avatar/2.jpg" sx={{backgroundColor:'#52796f'}}/>
+                <Avatar alt={user.username} src="/static/images/avatar/2.jpg" sx={{backgroundColor:'#52796f'}}/>
               </IconButton>
               ) : (<></>)}
             </Tooltip>
@@ -253,11 +283,10 @@ function NavBar() {
               <MenuItem key='profile' onClick={() => handleLink('/account')}>
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleLink('/account')}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key='logout' onClick={() => {logoutuser(); handleCloseUserMenu() }} >
+                  <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
-              ))}
+              
               
             </Menu>
           </Box>

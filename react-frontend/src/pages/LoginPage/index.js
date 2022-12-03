@@ -11,7 +11,12 @@ import LockIcon from "@mui/icons-material/Lock";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import MyVideo from "../HomePage/openingvid.mp4";
+
 import { Banner } from "../../components";
+import { useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+
 
 function Copyright(props) {
   return (
@@ -22,7 +27,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://carbonaltdel.tech/">
         CarbonAltDel
       </Link>{" "}
       {new Date().getFullYear()}
@@ -32,13 +37,13 @@ function Copyright(props) {
 }
 
 export default function LoginPage() {
+
+  let {loginUser} = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    loginUser(event);
   };
 
   return (
@@ -68,7 +73,7 @@ export default function LoginPage() {
             noValidate
             sx={{ mt: 1 }}
           >
-            <TextField
+            {/* <TextField
               margin="normal"
               required
               fullWidth
@@ -76,6 +81,16 @@ export default function LoginPage() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              autoFocus
+            /> */}
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="false"
               autoFocus
             />
             <TextField
@@ -86,7 +101,7 @@ export default function LoginPage() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              autoComplete="false"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

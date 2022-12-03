@@ -31,7 +31,7 @@ const ProductCardMUI = ({name, id, image, price, offset, dispatch, product}) => 
     dispatch({ type: "ADD_TO_CART", payload: { product, quantity:1 } });
     setState({  vertical: 'top',
     horizontal: 'center', open: true });
-    console.log('added to cart')
+  
   };
 
     return (

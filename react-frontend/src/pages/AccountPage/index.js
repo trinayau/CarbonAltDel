@@ -2,17 +2,80 @@ import chart from './images/Chart.svg'
 import './index.css';
 import { useNavigate } from 'react-router-dom';
 import {Button} from '@mui/material';
+import { useEffect, useState, useContext } from 'react';
+import { Alert, Snackbar } from '@mui/material';
+import AuthContext from "../../context/AuthContext";
+
 const AccountPage = () => {
 
     const navigate = useNavigate();
+    let {user} = useContext(AuthContext);
+
+    const [orders, setOrders] = useState([]);
+    let {authTokens} = useContext(AuthContext);
+
+    useEffect(() => {
+        getOrders()}, []);
+
+    let getOrders = async () => {
+        let response = await fetch('http://127.0.0.1:8000/api/orders/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authTokens.access}`
+            }
+        })
+        let data = await response.json();
+        setOrders(data);
+
+    }
+
+    const [state, setState] = useState({
+        open: true,
+        vertical: 'top',
+        horizontal: 'center',
+      });
+      const { vertical, horizontal, open } = state;
+
+      useEffect(()=>{
+        // check if url params has redirect=true
+       if(window.location.href==='http://localhost:3000/account?redirect=true'){
+           setState({open: true, vertical: 'top', horizontal: 'center'})
+       } else {
+              setState({open: false, vertical: 'top', horizontal: 'center'})
+       }
+    },[])
 
     const handleClick = (link) => {
         navigate(link);
     }
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setState({  vertical: 'top',
+        horizontal: 'center', open: false });
+      };
+
 
     return (
         <div class="account">
+            <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Welcome to CarbonAltDel, {user.username}!
+        </Alert>
+      </Snackbar>
+
     <div class="account-header">
         <div class="hello-user">Hello, Kei</div>
         <div class="carbon-rating">Your carbon ranking: <span>#3 this week</span></div>
@@ -37,14 +100,17 @@ const AccountPage = () => {
             <div class="history-header">Order History</div>
             <div class="orders-list">
                 <div class="orders">
-                    <div class="order-id">Order #102</div>
-                    <div class="order-id">Order #101</div>
-                    <div class="order-id">Order #100</div>
-                </div>
-                <div class="order-date">
-                    <div class="order-date">12/11/2022</div>
-                    <div class="order-date">12/10/2022</div>
-                    <div class="order-date">12/09/2022</div>
+                    {orders.map((order) => (
+                        <div class="order">
+                            <div class="order-date
+                            ">{order.date}</div>
+                            <div class="order-items">
+                                {order.body}
+                            </div>
+                        </div>
+                    ))}
+
+                            
                 </div>
             </div>
         </div>
