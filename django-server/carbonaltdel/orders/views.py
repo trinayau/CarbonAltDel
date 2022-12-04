@@ -47,7 +47,7 @@ def create_order(request):
     
     # send whatsapp message
     message = client.messages.create(
-    body="Your CarbonAltDel order #{} has been successfully placed, {}! Please check it out on www.carbonaltdel.tech/account".format(order.id, request.user.first_name),
+    body="Your CarbonAltDel Order: #{} has been successfully placed, {}! Please check it out on www.carbonaltdel.tech/account".format(order.id, request.user.first_name),
     from_=env('twilioNumber'),
     to=env('myNumber')
 )
