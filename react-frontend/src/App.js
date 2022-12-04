@@ -13,6 +13,7 @@ import {
   SupplierPage,
   RestaurantsPage,
   ContactPage,
+  SingleOrderPage
 } from "./pages";
 import { Certificate } from "./components";
 import PrivateRoute from "./utils/PrivateRoute";
@@ -33,12 +34,16 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/account" element={<PrivateRoute><AccountPage /></PrivateRoute>} />
+          <Route path="/account" >
+            <Route path="/account" element={<PrivateRoute><AccountPage /></PrivateRoute>} />
+            <Route path="/account/order/:orderId" element={<SingleOrderPage />} />
+          </Route>
           <Route path="/orderstatus/:orderId" element={<PrivateRoute><OrderStatusPage /></PrivateRoute>} />
           <Route path="/suppliers" element={<SupplierPage />} />
           <Route path="/restaurants" element={<RestaurantsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/certificate" element={<PrivateRoute><Certificate /></PrivateRoute>} />
+          {/* <Route path="/order/:orderId" element={<PrivateRoute><SingleOrderPage /></PrivateRoute>} /> */}
 
           <Route path="/products">
             <Route

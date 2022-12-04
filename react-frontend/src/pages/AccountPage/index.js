@@ -19,7 +19,7 @@ const AccountPage = () => {
         getOrders()}, []);
 
     let getOrders = async () => {
-        let response = await fetch('http://127.0.0.1:8000/api/orders/', {
+        let response = await fetch('http://127.0.0.1:8000/api/orders/my_orders', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const AccountPage = () => {
         })
         let data = await response.json();
         if(response.status === 200){
-
+            console.log(data)
         setOrders(data);
         } else if(response.statusText === 'Unauthorized'){
             logoutuser();
@@ -96,7 +96,7 @@ const AccountPage = () => {
                 {/* <div class="affiliates">Affiliate</div> */}
             </div>
             <div class="profile-info">
-                <div class="profile-name">Kei Chan</div>
+                <div class="profile-name">Kei</div>
                 <div class="company-name-text">Kai Mayfair</div>
                 <div class="company-email-text">kei@kaimayfair.com</div>
                 {/* <div class="affiliate-text">affiliate link goes here</div> */}
@@ -108,8 +108,8 @@ const AccountPage = () => {
                 <div class="orders">
                     {orders.map((order) => (
                         <div class="order d-flex justify-content-between">
-                             <div class="order-items">
-                                {order.body}
+                             <div class="order-items" onClick={()=> handleClick(`order/${order.id}`)}>
+                                Order # {order.id}
                             </div>
                             <div class="order-date
                             ">

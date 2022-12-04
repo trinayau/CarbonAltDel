@@ -10,3 +10,4 @@ export {default as AllProductPage} from './AllProductPage';
 export {default as SupplierPage} from './SupplierPage';
 export {default as RestaurantsPage} from './RestaurantsPage';
 export {default as ContactPage} from './ContactPage';
+export {default as SingleOrderPage} from './SingleOrderPage';

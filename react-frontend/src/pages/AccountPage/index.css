@@ -79,11 +79,11 @@
     padding-bottom: 20px;
     color: var(--light-color);
 }
-.orders-list {
+/* .orders-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 30px;
-}
+} */
 .orders {
     display: grid;
     grid-template-columns: 1fr;
@@ -97,6 +97,13 @@
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr 1fr 1fr;
     align-items: center;
+}
+
+.order-items:hover{
+    background-color: #f9f9f9;
+    color: var(--medium-color);
+    cursor: pointer;
+
 }
 .carbon-history {
     display: flex;
