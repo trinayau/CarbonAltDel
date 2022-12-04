@@ -107,20 +107,20 @@ export const AuthProvider = ({ children }) => {
     authTokens: authTokens,
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if(loading){
-      updateToken();
+  //   if(loading){
+  //     updateToken();
 
-    }
-    let fourMins = 1000 * 60 * 4;
-      let interval = setInterval(() => {
-        if (authTokens) {
-          updateToken();
-        }
-      }, fourMins);
-      return () => { clearInterval(interval); }
-    }, [authTokens, loading]);
+  //   }
+  //   let fourMins = 1000 * 60 * 4;
+  //     let interval = setInterval(() => {
+  //       if (authTokens) {
+  //         updateToken();
+  //       }
+  //     }, fourMins);
+  //     return () => { clearInterval(interval); }
+  //   }, [authTokens, loading]);
 
 
   return (
