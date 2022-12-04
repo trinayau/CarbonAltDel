@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'djoser',
     'products',
     'users',
+    'orders',
     'core.apps.CoreConfig',
 ]
 
