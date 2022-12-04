@@ -259,7 +259,7 @@ function NavBar() {
             <Tooltip title="Open settings">
               {user ? (
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user.username} src="/static/images/avatar/2.jpg" sx={{backgroundColor:'#52796f'}}/>
+                <Avatar alt={user.name[0].toUpperCase()} src="/static/images/avatar/2.jpg" sx={{backgroundColor:'#52796f'}}/>
               </IconButton>
               ) : (<></>)}
             </Tooltip>

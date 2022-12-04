@@ -6,16 +6,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from .serializers import OrderSerializer
-from core.models import Order
+# from .serializers import OrderSerializer
+# from core.models import Order
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
 
         # Add custom claims
-        token['username'] = user.username
-
+        token['username'] = user.user_name
+        token['name'] = user.first_name
         return token
 
 
@@ -29,11 +29,3 @@ def getRoutes(request):
         '/api/token/refresh/',
     ]
     return Response(routes)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def getOrders(request):
-    user = request.user
-    orders = user.order_set.all()
-    serializer = OrderSerializer(orders, many=True)
-    return Response(serializer.data)

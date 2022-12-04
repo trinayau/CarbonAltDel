@@ -78,7 +78,7 @@ const AccountPage = () => {
         }}
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Welcome to CarbonAltDel, {user.username}!
+            Welcome back {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!
         </Alert>
       </Snackbar>
 

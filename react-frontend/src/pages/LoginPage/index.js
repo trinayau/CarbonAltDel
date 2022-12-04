@@ -73,7 +73,7 @@ export default function LoginPage() {
             noValidate
             sx={{ mt: 1 }}
           >
-            {/* <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -82,8 +82,8 @@ export default function LoginPage() {
               name="email"
               autoComplete="email"
               autoFocus
-            /> */}
-            <TextField
+            />
+            {/* <TextField
               margin="normal"
               required
               fullWidth
@@ -92,7 +92,7 @@ export default function LoginPage() {
               name="username"
               autoComplete="false"
               autoFocus
-            />
+            /> */}
             <TextField
               margin="normal"
               required
