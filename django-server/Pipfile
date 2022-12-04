@@ -11,6 +11,8 @@ djoser = "*"
 stripe = "*"
 pillow = "*"
 djangorestframework-simplejwt = "*"
+twilio = "*"
+django-environ = "*"
 
 [dev-packages]
 

@@ -39,6 +39,7 @@ export const CartProvider = (props) => {
         );
 
         return tempstate3;
+
       default:
         return state;
     }

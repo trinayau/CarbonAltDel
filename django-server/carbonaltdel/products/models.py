@@ -3,7 +3,9 @@ from PIL import Image
 
 from django.core.files import File
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -55,6 +57,14 @@ class Product(models.Model):
     offset = models.DecimalField(max_digits=6, decimal_places=2)
     date_added = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def get_total(self):
+        return self.price + self.offset
+
+    @property
+    def get_carbon_emissions(self):
+        return self.weight * self.offset
+       
     class Meta:
         ordering = ('offset',)
 

@@ -34,7 +34,7 @@ function App() {
             }
           />
           <Route path="/account" element={<PrivateRoute><AccountPage /></PrivateRoute>} />
-          <Route path="/orderstatus" element={<PrivateRoute><OrderStatusPage /></PrivateRoute>} />
+          <Route path="/orderstatus/:orderId" element={<PrivateRoute><OrderStatusPage /></PrivateRoute>} />
           <Route path="/suppliers" element={<SupplierPage />} />
           <Route path="/restaurants" element={<RestaurantsPage />} />
           <Route path="/contact" element={<ContactPage />} />
