@@ -51,6 +51,29 @@ export const AuthProvider = ({ children }) => {
     navigate("/");
   }
 
+  const registerUser = async (e) => {
+    e.preventDefault();
+    let response = await fetch("http://127.0.0.1:8000/api/user/register/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: e.target.email.value,
+        password: e.target.password.value,
+        first_name: e.target.first_name.value,
+        user_name: e.target.username.value
+      }),
+    });
+    let data = await response.json();
+    if (response.status === 201) {
+      navigate("/login?redirect=true");
+    } else {
+      alert("Invalid Username or Password");
+    }
+  };
+
+
   let updateToken = async () => {
     let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
       method: "POST",
@@ -80,6 +103,7 @@ export const AuthProvider = ({ children }) => {
     user: user,
     loginUser: loginUser,
     logoutuser: logoutuser,
+    registerUser: registerUser,
     authTokens: authTokens,
   };
 

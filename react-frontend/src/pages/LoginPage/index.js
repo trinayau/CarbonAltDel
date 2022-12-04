@@ -11,10 +11,10 @@ import LockIcon from "@mui/icons-material/Lock";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import MyVideo from "../HomePage/openingvid.mp4";
-
+import { Alert, Snackbar } from '@mui/material';
 import { Banner } from "../../components";
 import { useNavigate } from 'react-router-dom';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 
 
@@ -40,15 +40,54 @@ export default function LoginPage() {
 
   let {loginUser} = useContext(AuthContext);
 
+  const [state, setState] = useState({
+    open: true,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+  const { vertical, horizontal, open } = state;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     loginUser(event);
   };
 
+   useEffect(()=>{
+        // check if url params has redirect=true
+       if(window.location.href==='http://localhost:3000/login?redirect=true'){
+           setState({open: true, vertical: 'top', horizontal: 'center'})
+       } else {
+              setState({open: false, vertical: 'top', horizontal: 'center'})
+       }
+    },[])
+
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setState({  vertical: 'top',
+      horizontal: 'center', open: false });
+    };
+
+
   return (
     <div>
       <Banner MyVideo={MyVideo} buttonText={""} />
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+            You have successfully registered! Please login to continue.
+        </Alert>
+      </Snackbar>
       <div style={{backgroundColor: "#f5f5f5"}}>
       <Container component="main" maxWidth="xs" >
         <CssBaseline />

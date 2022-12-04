@@ -13,6 +13,8 @@ import Container from "@mui/material/Container";
 import MyVideo from "../HomePage/openingvid.mp4";
 import { Banner } from "../../components";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
+import { useContext, useEffect, useState } from "react";
 
 function Copyright(props) {
   return (
@@ -34,16 +36,17 @@ function Copyright(props) {
 
 export default function SignUpPage() {
   const navigate = useNavigate();
+
+  let {registerUser} = useContext(AuthContext);
+
   const handleLink = (link) => {
     navigate(link);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    registerUser(event);
+
   };
 
   return (
@@ -80,7 +83,27 @@ export default function SignUpPage() {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="email"
+              autoComplete="false"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="false"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="first_name"
+              label="First Name"
+              name="first_name"
+              autoComplete="false"
               autoFocus
             />
             <TextField
@@ -91,7 +114,7 @@ export default function SignUpPage() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              autoComplete="false"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
