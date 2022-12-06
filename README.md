@@ -1,6 +1,7 @@
 # CarbonAltDelete 
-Online ingredients ordering platform, the net zero way by @trinayau and @Fuwa-Kei.
-SustainHacks 2022 Winner of Best Sustainability Hack sponsored by Avanade.
+SustainHacks 2022 Winner of Best Sustainability Hack sponsored by Avanade.  
+Online ingredients ordering platform, the net zero way by @trinayau and @Fuwa-Kei.  
+
 <p align="center">
  <a href="https://carbonaltdel.com/">React Frontend</a> / <a href="https://lloyds-hackathon-server.vercel.app/">Django Backend</a> 
 </p>
